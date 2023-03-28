@@ -1,0 +1,61 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 50px;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQng6zkt0xJ7KsPjnpQ2YIJC6-dv2htCJEUytfcw51bm1ftFZHYn7spopCOCNDvejJ8KC4&usqp=CAU);
+  background-size: cover;
+  height: fit-content;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #ddd;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  background-color: rgb(240, 241, 227);
+  margin-bottom: 90px;
+  margin-top: 30px;
+
+}
+
+label {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  padding: 0.5rem;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+  border-bottom: 2px solid #0077ff;
+}
+
+.submit-btn {
+  background-color: #4e6065ef;
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+  background-color: #0057c7;
+}

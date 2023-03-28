@@ -1,0 +1,37 @@
+.health-care-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+  
+  .health-care-card {
+    width: calc(50% - 1rem);
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background-color: rgb(180, 227, 236);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    text-align: center;
+  }
+  
+  .health-care-card img {
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+  }
+  
+  .health-care-card h3 {
+    margin-bottom: 1rem;
+    color: #4e4e4e;
+    font-size: 1.5rem;
+  }
+  
+  .health-care-card p {
+    color: #6c6c6c;
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+  
+  

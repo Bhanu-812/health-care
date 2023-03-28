@@ -1,0 +1,24 @@
+.appointments-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+  .appointment-card {
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .appointment-card h3 {
+    margin: 0;
+  }
+  
+  .appointment-card p {
+    margin: 10px 0;
+  }
+  
+  .appointment-card strong {
+    font-weight: bold;
+  }
+  
