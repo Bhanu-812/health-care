@@ -2,10 +2,11 @@ import React from "react";
 import Navb from "./Navb/Navb";
 import { Outlet } from "react-router-dom";
 import Foot from "./Foot/Foot";
-function RootLayout() {
+
+function RootLayout({ isAuthenticated, handleLogout }) {
     return (
         <div>
-            <Navb />
+            <Navb isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
             <div 
             style={{ minHeight: "80vh" }}
              className="mt-1"

@@ -1,3 +1,32 @@
-.Na{
-    background-color: rgb(0, 0, 0);
-}
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #4CAF50;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  @media (max-width: 991px) {
+    .navbar-nav {
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    
+    .nav-link {
+      padding: 10px 0;
+    }
+  }

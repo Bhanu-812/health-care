@@ -1,60 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
-import {
-    createBrowserRouter,
-    RouterProvider,
-} from "react-router-dom";
 import RootLayout from "./components/RootLayout";
 import Contactus from "./components/Contactus/Contactus";
 import Home from "./components/Home";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
-import Dashboard from './components/dashBoard/Dashboard'
+import Dashboard from './components/dashBoard/Dashboard';
 import Appointments from "./components/Appointments/Appointments";
-// import MedicalRecords from "./components/MedicalRecords/MedicalRecords";
-// import Prescriptions from "./components/Prescription/Prescriptions";
-// import Health_Edu from "./components/Health_Edu/Health_Edu";
 
-
-const routerObj = createBrowserRouter([
-    {
-        path: "/",
-        element: <RootLayout />,
-        children: [
-            {
-                path: "/",
-                element: <Home />
-            },
-            {
-                path:"/dashboard",
-                element: <Dashboard />,
-
-            },
-            {
-                path:'/appointments',
-                element: <Appointments/>
-            },
-            {
-                path: "/signup",
-                element: <Signup />
-            },
-            {
-                path: "/login",
-                element: <Login />
-            },
-            {
-                path: "/contact-us",
-                element: <Contactus />
-            },
-        ],
-    },
-]);
 const App = () => {
-    
+    const [role, setRole] = useState('');
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    useEffect(() => {
+        const token = localStorage.getItem('authToken');
+        if (token) {
+            setIsAuthenticated(true);
+        }
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem('authToken');
+        setIsAuthenticated(false);
+        setRole('');
+    };
+
     return (
-        <div>
-            <RouterProvider router={routerObj} />
-        </div>
+        <Router>
+            <Routes>
+                <Route path="/" element={<RootLayout isAuthenticated={isAuthenticated} handleLogout={handleLogout} />}>
+                    <Route index element={<Home />} />
+                    <Route path="dashboard" element={<Dashboard />} />
+                    <Route path="appointments" element={<Appointments />} />
+                    <Route path="signup" element={isAuthenticated ? <Home /> : <Signup />} />
+                    <Route path="login" element={isAuthenticated ? <Home /> : <Login setRole={setRole} setIsAuthenticated={setIsAuthenticated} />} />
+                    <Route path="contact-us" element={<Contactus />} />
+                </Route>
+            </Routes>
+            {role && <p>Welcome, {role}!</p>}
+        </Router>
     );
 };
 export default App;

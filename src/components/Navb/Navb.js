@@ -1,88 +1,91 @@
 import React from "react";
-import { Container, Navbar } from "react-bootstrap";
+import { Container, Navbar, Nav, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { FaBriefcaseMedical } from "react-icons/fa";
+import { FaBriefcaseMedical, FaHome, FaChartBar, FaCalendarAlt, FaUserPlus, FaEnvelope } from "react-icons/fa";
 
 import "./Navb.css";
-// import {RiLightbulbFlashFill} from 'react-icons/ri'
-// import {FcIdea} from 'react-icons/fc'
 
-function Navb() {
+function Navb({ isAuthenticated, handleLogout }) {
     return (
-        <div>
-            <Navbar
-                className="Na"
-                fixed="top"
-                style={{ position: "relative", backgroundColor: "black" }}
-            >
-                <Container>
-                    <Navbar.Brand href="/" className="text-white">
-                        <FaBriefcaseMedical /> MediCare
-                    </Navbar.Brand>
-                    <Navbar.Toggle />
-                    <Navbar.Collapse className="justify-content-end">
+        <Navbar className="Na" fixed="top" expand="lg" style={{ 
+            background: 'linear-gradient(to right, #1a1a1a, #333333)',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+        }}>
+            <Container>
+                <Navbar.Brand href="/" className="text-white d-flex align-items-center">
+                    <FaBriefcaseMedical style={{ fontSize: '1.5rem', marginRight: '0.5rem' }} />
+                    <span style={{ fontWeight: 'bold', fontSize: '1.2rem' }}>MediCare</span>
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="ms-auto align-items-center">
                         <NavLink
-                            className="nav-link m-2 text-white "
-                            style={{
-                                "&:hover": {
-                                    // textDecoration: "none",
-                                    cursor: "pointer",
-                                    color: "green",
-                                },
-                            }}
+                            className="nav-link mx-2 text-white d-flex align-items-center"
+                            style={({ isActive }) => ({
+                                color: isActive ? "#4CAF50" : "white",
+                            })}
                             to="/"
                         >
-                            Home
+                            <FaHome className="me-1" /> Home
                         </NavLink>
                         <NavLink
-                            className="nav-link m-2 text-white "
+                            className="nav-link mx-2 text-white d-flex align-items-center"
                             style={({ isActive }) => ({
-                                color: isActive ? "green" : "white",
+                                color: isActive ? "#4CAF50" : "white",
                             })}
                             to="/dashboard"
                         >
-                            Dashboard
+                            <FaChartBar className="me-1" /> Dashboard
                         </NavLink>
                         <NavLink
-                            className="nav-link m-2 text-white "
+                            className="nav-link mx-2 text-white d-flex align-items-center"
                             style={({ isActive }) => ({
-                                color: isActive ? "green" : "white",
+                                color: isActive ? "#4CAF50" : "white",
                             })}
                             to="/appointments"
                         >
-                            Appointments
+                            <FaCalendarAlt className="me-1" /> Appointments
                         </NavLink>
+                        {!isAuthenticated && (
+                            <NavLink
+                                className="nav-link mx-2 text-white d-flex align-items-center"
+                                style={({ isActive }) => ({
+                                    color: isActive ? "#4CAF50" : "white",
+                                })}
+                                to="/signup"
+                            >
+                                <FaUserPlus className="me-1" /> Sign Up
+                            </NavLink>
+                        )}
                         <NavLink
-                            className="nav-link m-2 text-white "
+                            className="nav-link mx-2 text-white d-flex align-items-center"
                             style={({ isActive }) => ({
-                                color: isActive ? "green" : "white",
-                            })}
-                            to="/signup"
-                        >
-                            Sign Up
-                        </NavLink>
-                        <NavLink
-                            className="nav-link m-2 text-white "
-                            style={({ isActive }) => ({
-                                color: isActive ? "green" : "white",
+                                color: isActive ? "#4CAF50" : "white",
                             })}
                             to="/contact-us"
                         >
-                            Contact Us
+                            <FaEnvelope className="me-1" /> Contact
                         </NavLink>
-                        <NavLink
-                            className="nav-link m-2 text-white "
-                            style={({ isActive }) => ({
-                                color: isActive ? "green" : "white",
-                            })}
-                            to="/login"
-                        >
-                            Login
-                        </NavLink>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-        </div>
+                        {!isAuthenticated ? (
+                            <NavLink
+                                className="nav-link mx-2"
+                                to="/login"
+                            >
+                                <Button variant="outline-light">Login</Button>
+                            </NavLink>
+                        ) : (
+                            <Button
+                                variant="outline-light"
+                                onClick={handleLogout}
+                                className="mx-2"
+                            >
+                                Logout
+                            </Button>
+                        )}
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 }
 

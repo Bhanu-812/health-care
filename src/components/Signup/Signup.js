@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import "./Signup.css";
 
 function Signup() {
@@ -7,11 +8,28 @@ function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [role, setRole] = useState("patient"); // default role to patient
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        // Submit form data to API or backend service
-        console.log({ firstName, lastName, email, password, confirmPassword });
+        if (password !== confirmPassword) {
+            alert("Passwords do not match");
+            return;
+        }
+
+        try {
+            const response = await axios.post('http://localhost:5000/api/auth/register', {
+                firstName,
+                lastName,
+                email,
+                password,
+                role
+            });
+            alert('User registered successfully');
+        } catch (error) {
+            console.error('Error registering user:', error.response?.data || error.message);
+            alert(`Error registering user: ${error.response?.data?.message || error.message}`);
+        }
     };
 
     return (
@@ -70,6 +88,11 @@ function Signup() {
                     minLength="8"
                     required
                 />
+                <label htmlFor="role">Role:</label>
+                <select id="role" value={role} onChange={(e) => setRole(e.target.value)}>
+                    <option value="patient">Patient</option>
+                    <option value="doctor">Doctor</option>
+                </select>
                 <button type="submit">Create Account</button>
             </form>
         </div>
