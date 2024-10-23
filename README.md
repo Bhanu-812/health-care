@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Health Care Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Health Care is a web application designed to provide patients with easy access to their medical information, including health records, prescriptions, appointments, and other health-related services. It offers features such as managing appointments, viewing health records, handling prescriptions, accessing billing information, and more.
 
-## Available Scripts
+## Key Features
 
-In the project directory, you can run:
+- **Health Records**: Manage and view your medical records, including diagnosis, treatment, and lab results.
+- **Appointments**: Schedule, view, and manage medical appointments, along with reminders for upcoming appointments.
+- **Prescriptions**: Access prescriptions and receive notifications for medication refills.
+- **Billing**: View and pay medical bills, and manage insurance information.
+- **Health Education**: Access a library of articles and resources on health topics to stay informed.
+- **TeleMedicine**: Connect with healthcare providers remotely for consultations and virtual appointments.
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: React.js, CSS, Bootstrap
+- **Backend**: Node.js, Express.js, MongoDB
+- **Authentication**: JSON Web Tokens (JWT) for secure user authentication
+- **Database**: MongoDB for storing user information and health records
+- **Middleware**: CORS, Body-parser for request handling
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation and Setup
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Ensure you have the following installed on your machine:
 
-### `npm run build`
+- Node.js
+- MongoDB
+- npm (Node Package Manager)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Backend Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   git clone https://github.com/Bhanu-812/health-care.git
+2. Navigate to the backend folder:
+   ```bash
+   cd backend
+3. Install dependencies:
+   ```bash
+   npm install
+4. Start MongoDB server:
+   ```bash
+   mongod
+5. Run the backend server:
+   ```bash
+   npm start
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
